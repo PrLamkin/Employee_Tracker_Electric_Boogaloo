@@ -74,6 +74,8 @@ function viewEmployee() {
 
     connection.query(query, function(err, res) {
         if (err) throw err;
+
+        console.log(res);
         console.log("Beep Boop, Employees viewed!\n");
 
         firstPrompt();
