@@ -186,7 +186,7 @@ function promptInsert(roleChoices) {
     .then(function(answer) {
         console.log(answer);
 
-        var query = `INSERT INTO employee ST ?`
+        var query = `INSERT INTO employee SET ?`
 
         connection.query(query, {
                 first_name: answer.first_name,
@@ -197,9 +197,18 @@ function promptInsert(roleChoices) {
                 if (err) throw err;
 
                 console.log(res);
-                console.log(res.insertedRows + "Inserted successfully!\n");
+                console.log("Employee inserted successfully!\n");
 
                 firstPrompt();
             })
     })
+}
+
+function promptDelete(deleteEmployeeChoices) {
+    inquirer
+        .prompt([{
+            type: "list",
+            name: "employeeId",
+            message: "Which employee will get the axe?"
+        }])
 }
