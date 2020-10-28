@@ -25,7 +25,7 @@ function firstPrompt() {
                 "View Employees",
                 "View Employees by Department",
                 "Add Employee",
-                "Remove employee",
+                "Remove Employee",
                 "Update Employee Role",
                 "Add Role",
                 "End"
@@ -222,8 +222,8 @@ function removeEmployee() {
         console.log(res);
         console.log("ArrayToDelete!\n");
 
-        promptDelete(deleteEmployeeChoices)
-    })
+        promptDelete(deleteEmployeeChoices);
+    });
 }
 
 function promptDelete(deleteEmployeeChoices) {
@@ -239,7 +239,7 @@ function promptDelete(deleteEmployeeChoices) {
             connection.query(query, { id: answer.employeeId }, function(err, res) {
                 if (err) throw err;
 
-                console.tables(res);
+                console.table(res);
                 console.log("The person has been removed.\n");
 
                 firstPrompt();
